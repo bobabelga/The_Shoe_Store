@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <data>
+        <variable name="shoe" type="com.bobabelga.theshoestore.models.Shoe"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,6 +59,7 @@
             android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
+            android:text="@={shoe.name}"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -69,6 +72,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
+            android:text="@={shoe.company}"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
@@ -81,7 +85,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="numberDecimal"
+            android:text="@={`` + shoe.size}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/companyEditText" />
 
@@ -94,6 +99,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
+            android:text="@={shoe.description}"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
