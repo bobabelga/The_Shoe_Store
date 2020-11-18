@@ -12,7 +12,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.bobabelga.theshoestore.R
 import com.bobabelga.theshoestore.databinding.FragmentShoeListingBinding
+import com.bobabelga.theshoestore.databinding.ShoeElementDetailsBinding
 import com.bobabelga.theshoestore.ui.ShoeViewModel
+import kotlinx.android.synthetic.main.shoe_element_details.*
 
 
 class ShoeListingFragment : Fragment() {
@@ -40,21 +42,13 @@ class ShoeListingFragment : Fragment() {
 
         shoeViewModel.shoeListLiveData.observe(viewLifecycleOwner, { shoeList ->
             for (i in 0 until shoeList.size) {
-                val to_add: View = inflater.inflate(
+
+                val to_add: ShoeElementDetailsBinding = DataBindingUtil.inflate(inflater,
                     R.layout.shoe_element_details,
                     binding.linearLayout, false
                 )
-
-                val name = to_add.findViewById<View>(R.id.nameTxtValue) as TextView
-                name.setText(shoeList.get(i).name)
-                val company = to_add.findViewById<View>(R.id.companyTxtValue) as TextView
-                company.setText(shoeList.get(i).company)
-                val size = to_add.findViewById<View>(R.id.sizeTxtValue) as TextView
-                size.setText(shoeList.get(i).size.toString())
-                val desc = to_add.findViewById<View>(R.id.descTxtValue) as TextView
-                desc.setText(shoeList.get(i).description)
-
-                binding.linearLayout.addView(to_add)
+                to_add.shoe = shoeList.get(i)
+                binding.linearLayout.addView(to_add.root)
             }
         })
         setHasOptionsMenu(true)
