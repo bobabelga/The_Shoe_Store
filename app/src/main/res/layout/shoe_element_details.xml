@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shoeItem"
+        style="@style/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/nameText"
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Shoe Name"
+            app:layout_constraintBottom_toTopOf="@+id/companyText"
+            app:layout_constraintEnd_toStartOf="@+id/nameTxtValue"
+            app:layout_constraintStart_toStartOf="@+id/descText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/companyText"
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Company"
+            app:layout_constraintBottom_toTopOf="@+id/sizeText"
+            app:layout_constraintEnd_toEndOf="@+id/descText"
+            app:layout_constraintEnd_toStartOf="@+id/companyTxtValue"
+            app:layout_constraintStart_toStartOf="@+id/descText"
+            app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+        <TextView
+            android:id="@+id/sizeText"
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Shoe Size "
+            app:layout_constraintBottom_toTopOf="@+id/descText"
+            app:layout_constraintEnd_toStartOf="@+id/sizeTxtValue"
+            app:layout_constraintStart_toStartOf="@+id/descText"
+            app:layout_constraintTop_toBottomOf="@+id/companyText" />
+
+        <TextView
+            android:id="@+id/descText"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Description"
+            app:layout_constraintBottom_toTopOf="@+id/descTxtValue"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/nameTxtValue"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/companyTxtValue"
+            app:layout_constraintEnd_toEndOf="@+id/descTxtValue"
+            app:layout_constraintStart_toEndOf="@+id/descText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/companyTxtValue"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/sizeTxtValue"
+            app:layout_constraintEnd_toEndOf="@+id/descTxtValue"
+            app:layout_constraintStart_toEndOf="@+id/descText"
+            app:layout_constraintTop_toBottomOf="@+id/nameTxtValue" />
+
+        <TextView
+            android:id="@+id/sizeTxtValue"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/descText"
+            app:layout_constraintEnd_toEndOf="@+id/descTxtValue"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/descText"
+            app:layout_constraintTop_toBottomOf="@+id/companyTxtValue" />
+
+        <TextView
+            android:id="@+id/descTxtValue"
+            style="@style/editTxtStyle"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
