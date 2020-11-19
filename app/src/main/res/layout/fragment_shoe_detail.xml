@@ -5,6 +5,10 @@
     <data>
         <variable name="shoe" type="com.bobabelga.theshoestore.models.Shoe"/>
     </data>
+
+    <!-- i used constrainylayout because i need the elements to arrange freely
+    and placed by the system based on constraints
+    and  adapt in size based on screen size and orientation-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

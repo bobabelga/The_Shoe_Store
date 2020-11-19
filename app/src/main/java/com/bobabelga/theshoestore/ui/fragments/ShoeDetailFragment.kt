@@ -8,24 +8,27 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bobabelga.theshoestore.R
 import com.bobabelga.theshoestore.databinding.FragmentShoeDetailBinding
 import com.bobabelga.theshoestore.models.SheoList
 import com.bobabelga.theshoestore.models.Shoe
+import com.bobabelga.theshoestore.ui.ShoeViewModel
 
 
 class ShoeDetailFragment : Fragment() {
     lateinit var binding: FragmentShoeDetailBinding
+    lateinit var shoeViewModel: ShoeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
 
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-        var shoe = ShoeDetailFragmentArgs.fromBundle(requireArguments()).shoe
         var newShoe = Shoe("", 0.0, "", "")
         binding.shoe = newShoe
         binding.sizeEditText.setOnFocusChangeListener { v, hasFocus ->
@@ -42,17 +45,10 @@ class ShoeDetailFragment : Fragment() {
                 Toast.makeText(context, "Descriptin is empty", Toast.LENGTH_SHORT).show()
             else {
                 newShoe = binding.shoe as Shoe
-                if (shoe != null) {
-                    shoe!!.shoeArrayList.add(newShoe)
-                } else {
-                    shoe = SheoList(ArrayList())
-                    shoe!!.shoeArrayList.add(newShoe)
-                }
+                shoeViewModel.addshoe(newShoe)
                 view.findNavController()
                     .navigate(
-                        ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment(
-                            shoe
-                        )
+                        ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment()
                     )
             }
 
@@ -60,7 +56,7 @@ class ShoeDetailFragment : Fragment() {
         binding.cancelBtn.setOnClickListener { view: View ->
             view.findNavController()
                 .navigate(
-                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment(shoe)
+                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment()
                 )
         }
         return binding.root

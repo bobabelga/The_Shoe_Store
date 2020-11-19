@@ -24,19 +24,14 @@ class ShoeListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        shoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-        val shoeList = ShoeListingFragmentArgs.fromBundle(requireArguments()).shoe
-        if (shoeList != null) shoeViewModel.shoeListLiveData.value = shoeList.shoeArrayList
-
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
         val binding: FragmentShoeListingBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_listing, container, false)
         binding.addBtn.setOnClickListener { view: View ->
 
             view.findNavController()
                 .navigate(
-                    ShoeListingFragmentDirections.actionShoeListingFragmentToShoeDetailFragment(
-                        shoeList
-                    )
+                    ShoeListingFragmentDirections.actionShoeListingFragmentToShoeDetailFragment()
                 )
         }
 
