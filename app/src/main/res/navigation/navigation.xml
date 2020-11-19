@@ -53,11 +53,6 @@
             app:destination="@id/shoeDetailFragment"
             app:popUpTo="@id/shoeListingFragment"
             app:popUpToInclusive="true" />
-        <argument
-            android:name="shoe"
-            app:argType="com.bobabelga.theshoestore.models.SheoList"
-            app:nullable="true"
-            android:defaultValue="@null" />
         <action
             android:id="@+id/action_shoeListingFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -74,10 +69,5 @@
             app:destination="@id/shoeListingFragment"
             app:popUpTo="@id/shoeDetailFragment"
             app:popUpToInclusive="true" />
-        <argument
-            android:name="shoe"
-            app:argType="com.bobabelga.theshoestore.models.SheoList"
-            app:nullable="true"
-            android:defaultValue="@null" />
     </fragment>
 </navigation>
